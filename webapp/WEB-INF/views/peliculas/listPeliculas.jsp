@@ -30,9 +30,6 @@
         <div class='alert alert-success' role="alert">${ mensaje}</div>
 
     </c:if>
-
-
-
     <a href="${urlCreate}" class="btn btn-success" role="button" title="Nueva Pelicula" >Nueva</a><br><br>
 
     <div class="table-responsive">
