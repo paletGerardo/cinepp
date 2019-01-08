@@ -61,13 +61,8 @@ public class HomeController {
 	{
 		System.out.println("id de la pelicula:" + idPelicula);
 		System.out.println("fecha:" + fecha);
+		modelo.addAttribute("pelicula", servicePelicula.buscarPorId(idPelicula));
 
-//		String tituloPelicula = "terminator 3, 'El colapso'";
-//		Integer duracion = 136;
-//		Double precio = 30.00;
-//		modelo.addAttribute("titulo", tituloPelicula);
-//		modelo.addAttribute("duracion", duracion);
-//		modelo.addAttribute("precio", precio);
 		return "detalles";
 	}
 

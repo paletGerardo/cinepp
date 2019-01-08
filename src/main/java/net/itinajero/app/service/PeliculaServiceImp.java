@@ -73,4 +73,19 @@ public class PeliculaServiceImp implements IPeliculaService {
 	public List<Pelicula> buscarTodas() {
 		return lista;
 	}
+
+	public Pelicula buscarPorId(int idPelicula) {
+
+		for (Pelicula p : lista){
+			if (p.getId() == idPelicula){
+				return  p;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public void insertar(Pelicula pelicula) {
+		lista.add(pelicula);
+	}
 }

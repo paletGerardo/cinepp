@@ -1,5 +1,8 @@
 package net.itinajero.app.controller;
 
+import net.itinajero.app.service.INoticiaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,20 +15,19 @@ import net.itinajero.app.model.Noticia;
 @RequestMapping(value = "/noticias")
 public class NoticiasController {
 
+    @Autowired
+	private INoticiaService serviceNoticia;
+
 	@GetMapping(value = "/create")
 	public String crear() {
 		return "formNoticia";
 	}
 
 	@PostMapping(value = "/save")
-	public String guardar(@RequestParam("titulo") String titulo, @RequestParam("estatus") String estatus,
-						  @RequestParam("detalles") String detalles) {
-		Noticia objNoticia = new Noticia();
-		objNoticia.setTitulo(titulo);
-		objNoticia.setEstatus(estatus);
-		objNoticia.setDetalles(detalles);
+	public String guardar(Noticia noticia) {
 
-		System.out.println(objNoticia);
+
+		serviceNoticia.guardar(noticia);
 		return "formNoticia";
 	}
 }

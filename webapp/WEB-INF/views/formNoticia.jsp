@@ -29,7 +29,7 @@
 
       <h3 class="blog-title"><span class="label label-success">Datos de la Noticia</span></h3>
 
-      <form action = "/cineapp/noticias/save" method = "post">
+      <form action = "${urlRoot}/noticias/save" method = "post">
         <div class="row">         
           <div class="col-sm-6">
             <div class="form-group">
@@ -50,7 +50,7 @@
         <div class="row"> 
           <div class="col-sm-12">
             <div class="form-group">
-              <label for="detalle">Detalles</label>             
+              <label for="detalles">Detalles</label>
               <textarea class="form-control" name="detalles" id="detalles" rows="10"></textarea>
             </div>  
           </div>
