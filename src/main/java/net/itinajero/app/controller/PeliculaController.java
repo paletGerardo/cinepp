@@ -64,6 +64,7 @@ public class PeliculaController {
 
         System.out.println("Se recibio la pelicula " + pelicula);
         //return "peliculas/formPelicula";
+
         return "redirect:/peliculas/index";
     }
 

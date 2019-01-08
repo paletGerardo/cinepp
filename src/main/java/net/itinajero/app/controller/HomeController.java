@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import net.itinajero.app.model.Banner;
+import net.itinajero.app.service.IBannerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,9 @@ public class HomeController {
 	@Autowired
 	private IPeliculaService servicePelicula;
 
+	@Autowired
+	private IBannerService bannerService;
+
 	private SimpleDateFormat laFecha = new SimpleDateFormat("dd-MM-yyyy");
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
@@ -29,14 +34,17 @@ public class HomeController {
 		return "home";
 	}
 
-	//Render de Pagina Principal...
+//Render de Pagina Principal...
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String mostrarPrincipal(Model modelo){
+
 		List<String> listaFecha = Utileria.getNextDays(4);
-		System.out.println(listaFecha);
 		List<Pelicula> peliculas = servicePelicula.buscarTodas();
+		List<Banner> banners = bannerService.buscarTodos();
+
 		modelo.addAttribute("listaFechas", listaFecha);
 		modelo.addAttribute("peliculas", peliculas);
+		modelo.addAttribute("banners", banners);
 		modelo.addAttribute("fecha", laFecha.format(new Date()));
 		return "home";
 	}
