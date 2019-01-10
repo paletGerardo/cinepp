@@ -28,7 +28,7 @@ public class BannerController {
     }
 
     @GetMapping("/create")
-    public String crear(Banner banner){
+    public String crear(){
 
         return "banners/formBanner";
     }

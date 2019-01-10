@@ -45,6 +45,7 @@ public class HomeController {
 		modelo.addAttribute("listaFechas", listaFecha);
 		modelo.addAttribute("peliculas", peliculas);
 		modelo.addAttribute("banners", banners);
+		System.out.println("SE LISTAN BANNERS: " + banners);
 		modelo.addAttribute("fecha", laFecha.format(new Date()));
 		return "home";
 	}
@@ -60,7 +61,7 @@ public class HomeController {
 		modelo.addAttribute("fecha", fecha);
 
 		System.out.println("fechas de la oelicula:"  + fecha);
-		return "home";
+		return "home2";
 	}
 
 	@RequestMapping(value = "/detail/{id}/{fecha}", method = RequestMethod.GET)
