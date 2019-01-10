@@ -31,7 +31,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String goHome() {
-		return "home";
+		return "home2";
 	}
 
 //Render de Pagina Principal...
@@ -42,12 +42,12 @@ public class HomeController {
 		List<Pelicula> peliculas = servicePelicula.buscarTodas();
 		List<Banner> banners = bannerService.buscarTodos();
 
-		modelo.addAttribute("listaFechas", listaFecha);
+		modelo.addAttribute("fechas", listaFecha);
 		modelo.addAttribute("peliculas", peliculas);
 		modelo.addAttribute("banners", banners);
 		System.out.println("SE LISTAN BANNERS: " + banners);
 		modelo.addAttribute("fecha", laFecha.format(new Date()));
-		return "home";
+		return "home2";
 	}
 
 	//Filtrar peliculas por FECHA...
