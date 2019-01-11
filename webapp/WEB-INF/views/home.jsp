@@ -15,7 +15,6 @@
     <link href="${urlPublic}/bootstrap/css/theme.css" rel="stylesheet">
 
 </head>
-
 <body>
 
 <jsp:include page="includes/menu.jsp"></jsp:include>
