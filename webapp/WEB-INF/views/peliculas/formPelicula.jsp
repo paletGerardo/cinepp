@@ -10,8 +10,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Creacion de Peliculas</title>
-    <spring:url value="/resources" var="urlPublic" />
-    <spring:url value="/peliculas/save" var="urlForm" />
+    <spring:url value="/resources" var="urlPublic"/>
+    <spring:url value="/peliculas/save" var="urlForm"/>
     <link href="${urlPublic}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="${urlPublic}/bootstrap/css/theme.css" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -20,7 +20,7 @@
 
 <body>
 
-<jsp:include page="../includes/menu.jsp" />
+<jsp:include page="../includes/menu.jsp"/>
 
 <div class="container theme-showcase" role="main">
 
@@ -33,24 +33,34 @@
             Por favor corrija los siguientes errores:
             <ul>
                 <c:forEach var="error" items="${errors.allErrors}">
-                    <li><spring:message message="${error}" /></li>
+                    <li><spring:message message="${error}"/></li>
                 </c:forEach>
             </ul>
         </div>
     </spring:hasBindErrors>
 
     <form:form action="${urlForm}" method="post" enctype="multipart/form-data" modelAttribute="pelicula">
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <img class="img-rounded" src="${urlPublic}/images/${pelicula.imagen}" alt="Generic placeholder image" width="150" height="200">
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-3">
                 <div class="form-group">
                     <label for="titulo">Título</label>
-                    <form:input type="text" class="form-control" path="titulo" id="titulo" required="required" />
+                    <form:hidden path="id"/>
+                    <form:input type="text" class="form-control" path="titulo" id="titulo" required="required"/>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="form-group">
                     <label for="duracion">Duracion</label>
-                    <form:input type="text" class="form-control" path="duracion" name="duracion" id="duracion" required="required" />
+                    <form:input type="text" class="form-control" path="duracion" name="duracion" id="duracion"
+                                required="required"/>
                 </div>
             </div>
             <div class="col-sm-3">
@@ -94,60 +104,65 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label for="fechaEstreno">Fecha Estreno</label>
-                    <form:input type="text" class="form-control" path="fechaEstreno"  id="fechaEstreno" required="required" />
+                    <form:input type="text" class="form-control" path="fechaEstreno" id="fechaEstreno"
+                                required="required"/>
                 </div>
             </div>
 
             <div class="col-sm-3">
                 <div class="form-group">
                     <label for="archivoImagen">Imagen</label>
-                    <input type="file" id="archivoImagen" name="archivoImagen" />
+                    <form:hidden path="imagen"/>
+                    <input type="file" id="archivoImagen" name="archivoImagen"/>
                     <p class="help-block">Imagen de la pelicula</p>
                 </div>
             </div>
         </div>
 
         <div class="page-header">
-                    <h3 class="blog-title"><span class="label label-success">Detalles</span></h3>
+            <h3 class="blog-title"><span class="label label-success">Detalles</span></h3>
         </div>
 
         <div class="row">
-          <div class="col-sm-3">
-            <div class="form-group">
-              <label for="director">Director</label>
-              <form:input type="text" class="form-control" path="detalle.director" id="director" required="required" />
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="director">Director</label>
+                    <form:input type="text" class="form-control" path="detalle.director" id="director"
+                                required="required"/>
+                </div>
             </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="form-group">
-              <label for="actores">Actores</label>
-              <form:input type="text" class="form-control" path="detalle.actores" id="actores" required="required" />
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="actores">Actores</label>
+                    <form:input type="text" class="form-control" path="detalle.actores" id="actores"
+                                required="required"/>
+                </div>
             </div>
-          </div>
 
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="trailer">URL del Trailer (Youtube)</label>
-              <form:input type="text" class="form-control" path="detalle.trailer" id="trailer" placeholder="URL completa del video de YOUTUBE" required="required" />
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="trailer">URL del Trailer (Youtube)</label>
+                    <form:input type="text" class="form-control" path="detalle.trailer" id="trailer"
+                                placeholder="URL completa del video de YOUTUBE" required="required"/>
+                </div>
             </div>
-          </div>
         </div>
 
         <div class="row">
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="sinopsis">Sinopsis</label>
-              <form:textarea class="form-control" rows="5" path="detalle.sinopsis" id="sinopsis"></form:textarea>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="sinopsis">Sinopsis</label>
+                    <form:textarea class="form-control" rows="5" path="detalle.sinopsis" id="sinopsis"></form:textarea>
+                </div>
             </div>
-          </div>
         </div>
         -->
-        <button type="submit" class="btn btn-danger" >Guardar</button>
+        <button type="submit" class="btn btn-danger">Guardar</button>
     </form:form>
 
     <hr class="featurette-divider">
 
-    <jsp:include page="../includes/footer.jsp" />
+    <jsp:include page="../includes/footer.jsp"/>
 
 </div> <!-- /container -->
 

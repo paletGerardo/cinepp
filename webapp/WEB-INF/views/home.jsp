@@ -132,7 +132,7 @@
                         <span class="label label-default">${pelicula.duracion } min</span>
                         <span class="label label-default">${pelicula.genero }</span>
                     </h4>
-                    <p><a class="btn btn-sm btn-primary" href="${urlRoot}detail/${pelicula.id }/${fechaBusqueda}" role="button">Consulta Horarios &raquo;</a></p>
+                    <p><a class="btn btn-sm btn-primary" href="${urlRoot}detail/${pelicula.id }/${fecha}" role="button">Consulta Horarios &raquo;</a></p>
                 </div>
             </c:forEach>
 
