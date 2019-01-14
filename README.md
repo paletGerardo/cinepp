@@ -120,4 +120,12 @@ video 71
                 }
             }
             
-video 76
+video 86
+
+    Recordatorio @ModelAttribute
+    
+        1. Reemplaza el envio de modelo a la vista con formulario, de esta manera se cargan automaticamente.
+       
+video 91
+
+    Renderizar  atributo option de un SELECT automaticamente
