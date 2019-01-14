@@ -1,74 +1,70 @@
+/**
+ * Clase que representa una imagen del Banner (Carousel) de la pagina principal
+ */
 package net.itinajero.app.model;
 
 import java.util.Date;
 
 public class Banner {
 
-    private int id;
-    private String titulo;
-    private Date fecha;
-    private String archivo;
-    private String estatus;
+	private int id;
+	private String titulo;
+	private Date fecha; // Fecha de Publicacion del Banner
+	private String archivo; // atributo para guardar el nombre de la imagen
+	private String estatus;
+	
+	/**
+	 * Constructor de la clase
+	 */
+	public Banner(){		
+		this.fecha = new Date(); // Por default, la fecha del sistema
+		this.estatus="Activo"; // Por default el banner esta activo
+	}
 
-    public Banner() {
-    }
+	public int getId() {
+		return id;
+	}
 
-    public Banner(int id, String titulo, Date fecha, String archivo, String estatus) {
-        this.id = id;
-        this.titulo = titulo;
-        this.fecha = fecha;
-        this.archivo = archivo;
-        this.estatus = estatus;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public String getTitulo() {
+		return titulo;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
 
-    public String getTitulo() {
-        return titulo;
-    }
+	public Date getFecha() {
+		return fecha;
+	}
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
 
-    public Date getFecha() {
-        return fecha;
-    }
+	public String getArchivo() {
+		return archivo;
+	}
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
+	public void setArchivo(String archivo) {
+		this.archivo = archivo;
+	}
 
-    public String getArchivo() {
-        return archivo;
-    }
+	public String getEstatus() {
+		return estatus;
+	}
 
-    public void setArchivo(String archivo) {
-        this.archivo = archivo;
-    }
+	public void setEstatus(String estatus) {
+		this.estatus = estatus;
+	}
 
-    public String getEstatus() {
-        return estatus;
-    }
-
-    public void setEstatus(String estatus) {
-        this.estatus = estatus;
-    }
-
-    @Override
-    public String toString() {
-        return "Banner{" +
-                "id=" + id +
-                ", titulo='" + titulo + '\'' +
-                ", fecha=" + fecha +
-                ", archivo='" + archivo + '\'' +
-                ", estatus='" + estatus + '\'' +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Banner [id=" + id + ", titulo=" + titulo + ", fecha=" + fecha + ", archivo=" + archivo + ", estatus="
+				+ estatus + "]";
+	}	
+		
 }

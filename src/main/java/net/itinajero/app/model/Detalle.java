@@ -1,71 +1,71 @@
 package net.itinajero.app.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Detalles")
 public class Detalle {
-    private int id;
-    private String director;
-    private String actores;
-    private String sinopsis;
-    private String trailer;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+	private String director;
+	private String actores;
+	private String sinopsis;
+	private String trailer;
+	
+	public Detalle() {
+		//System.out.println("Constructor Detalle");
+	}
 
-    public Detalle() {
-    }
+	public int getId() {
+		return id;
+	}
 
-    public Detalle(int id, String director, String actores, String sinopsis, String trailer) {
-        this.id = id;
-        this.director = director;
-        this.actores = actores;
-        this.sinopsis = sinopsis;
-        this.trailer = trailer;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public String getDirector() {
+		return director;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setDirector(String director) {
+		this.director = director;
+	}
 
-    public String getDirector() {
-        return director;
-    }
+	public String getActores() {
+		return actores;
+	}
 
-    public void setDirector(String director) {
-        this.director = director;
-    }
+	public void setActores(String actores) {
+		this.actores = actores;
+	}
 
-    public String getActores() {
-        return actores;
-    }
+	public String getSinopsis() {
+		return sinopsis;
+	}
 
-    public void setActores(String actores) {
-        this.actores = actores;
-    }
+	public void setSinopsis(String sinopsis) {
+		this.sinopsis = sinopsis;
+	}
 
-    public String getSinopsis() {
-        return sinopsis;
-    }
+	public String getTrailer() {
+		return trailer;
+	}
 
-    public void setSinopsis(String sinopsis) {
-        this.sinopsis = sinopsis;
-    }
+	public void setTrailer(String trailer) {
+		this.trailer = trailer;
+	}
 
-    public String getTrailer() {
-        return trailer;
-    }
-
-    public void setTrailer(String trailer) {
-        this.trailer = trailer;
-    }
-
-    @Override
-    public String toString() {
-        return "Detalle{" +
-                "id=" + id +
-                ", director='" + director + '\'' +
-                ", actores='" + actores + '\'' +
-                ", sinopsis='" + sinopsis + '\'' +
-                ", trailer='" + trailer + '\'' +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Detalle [id=" + id + ", director=" + director + ", actores=" + actores + ", sinopsis=" + sinopsis
+				+ ", trailer=" + trailer + "]";
+	}
+	
 }

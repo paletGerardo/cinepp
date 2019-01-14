@@ -129,3 +129,98 @@ video 86
 video 91
 
     Renderizar  atributo option de un SELECT automaticamente
+    
+video 129
+
+    @Transient // sirve para pasar por alto un atributo en el mapeo.
+    
+    
+Relaciones: Spring Data JPA
+
+video 131
+    
+        1. Anotacion @OneToOne
+            
+         @Entity
+         @Table(name = "Peliculas")
+         public class Pelicula {
+         
+             @Id
+             @GeneratedValue(strategy = GenerationType.IDENTITY)// valor auto_increment generado por MySql
+             private int id;
+             private String titulo;
+             private String clasificacion;
+             private int duracion;
+             private String genero;
+             private String imagen = "cinema.png";
+             private Date fechaEstreno;
+             private String estatus = "activa";
+         
+             @OneToOne
+             @JoinColumn(name = "idDetalle")
+             private Detalle detalle;
+      
+video 132
+    
+        1. Anotacion @OneToMuch
+            
+         @Entity
+         @Table(name = "Horarios")
+         public class Horarios {
+         
+             @Id
+             @GeneratedValue(strategy = GenerationType.IDENTITY)// valor auto_increment generado por MySql
+             private int id;
+             private String titulo;
+             private String clasificacion;
+             private int duracion;
+             private String genero;
+             private String imagen = "cinema.png";
+             private Date fechaEstreno;
+             private String estatus = "activa";
+         
+             @OneToMuch
+             @JoinColumn(name = "Horarios")
+             private Horario horario;                         
+             
+video 134
+
+        1. Anotacion ManyToOne
+        
+            @Entity
+            @Table(name = "Horarios")
+            public class Horario {
+            
+                @Id
+                @GeneratedValue(strategy = GenerationType.IDENTITY)
+                private int id;
+                private Date fecha;
+                private String hora;
+                private String sala;
+                private Double precio;
+            
+                @JoinColumn(name = "idPelicula")
+                @ManyToOne
+                private Pelicula pelicula;
+                
+video 135
+
+        1. Anotacion OneToMany
+        
+            @Entity
+            @Table(name = "Peliculas")
+            public class Pelicula {
+            
+                @Id
+                @GeneratedValue(strategy = GenerationType.IDENTITY)// valor auto_increment generado por MySql
+                private int id;
+                private String titulo;
+                private String clasificacion;
+                private int duracion;
+                private String genero;
+                private String imagen = "cinema.png";
+                private Date fechaEstreno;
+                private String estatus = "activa";
+                
+                @OneToMany(mappedBy = "pelicula", fetch = FetchType.EAGER)
+                private List<Horario> horarios;

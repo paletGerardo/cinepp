@@ -1,22 +1,29 @@
 package net.itinajero.app.model;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "Noticias")
-public class Noticia {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="Noticias")
+public class Noticia {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String titulo;
-	private String detalles;
-	private Date fecha = new Date();
+	private Date fecha;
+	private String detalle;
 	private String estatus;
-
-	public Noticia() {
-		this.estatus = "activa";
+	
+	public Noticia(){
+		//System.out.println("Constructor Noticia");
+		this.fecha = new Date();
+		this.estatus="Activa";
 	}
 
 	public int getId() {
@@ -32,15 +39,8 @@ public class Noticia {
 	}
 
 	public void setTitulo(String titulo) {
+		System.out.println("Set titulo");
 		this.titulo = titulo;
-	}
-
-	public String getDetalles() {
-		return detalles;
-	}
-
-	public void setDetalles(String detalles) {
-		this.detalles = detalles;
 	}
 
 	public Date getFecha() {
@@ -51,19 +51,28 @@ public class Noticia {
 		this.fecha = fecha;
 	}
 
+	public String getDetalle() {
+		return detalle;
+	}
+
+	public void setDetalle(String detalle) {
+		System.out.println("Set Detalle");
+		this.detalle = detalle;
+	}
+
 	public String getEstatus() {
 		return estatus;
 	}
 
 	public void setEstatus(String estatus) {
+		System.out.println("Set estatus");
 		this.estatus = estatus;
 	}
 
 	@Override
 	public String toString() {
-		return "Noticia [id=" + id + ", titulo=" + titulo + ", detalles=" + detalles + ", fecha=" + fecha + ", estatus="
+		return "Noticia [id=" + id + ", titulo=" + titulo + ", fecha=" + fecha + ", detalle=" + detalle + ", estatus="
 				+ estatus + "]";
 	}
-
-
+	
 }
