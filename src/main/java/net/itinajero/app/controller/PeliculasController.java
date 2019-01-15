@@ -28,7 +28,11 @@ import net.itinajero.app.util.Utileria;
 @RequestMapping("/peliculas")
 public class PeliculasController {
 
+	@Autowired
+	private IDetallesService detallesService;
 
+	@Autowired
+	private IPeliculasService peliculasService;
 
 
 	@GetMapping("/index")
@@ -59,6 +63,8 @@ public class PeliculasController {
 			pelicula.setImagen(nombreImagen);
 		}
 
+		detallesService.insertar(pelicula.getDetalle());
+		peliculasService.insertar(pelicula);
 
     	attributes.addFlashAttribute("mensaje", "El registro fue guardado");		
 		return "redirect:/peliculas/index";
