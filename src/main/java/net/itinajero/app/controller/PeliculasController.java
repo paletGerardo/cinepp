@@ -34,6 +34,7 @@ public class PeliculasController {
 	@Autowired
 	private IPeliculasService peliculasService;
 
+
 	@GetMapping("/index")
 	public String mostrarIndex(Model model) {
 		List<Pelicula> lista = peliculasService.buscarTodas();
@@ -64,6 +65,7 @@ public class PeliculasController {
 
 		detallesService.insertar(pelicula.getDetalle());
 		peliculasService.insertar(pelicula);
+
     	attributes.addFlashAttribute("mensaje", "El registro fue guardado");		
 		return "redirect:/peliculas/index";
 	}	
