@@ -29,8 +29,7 @@ import net.itinajero.app.util.Utileria;
 public class PeliculasController {
 
 
-	@Autowired
-	private IPeliculasService peliculasService;
+
 
 	@GetMapping("/index")
 	public String mostrarIndex(Model model) {
@@ -60,7 +59,7 @@ public class PeliculasController {
 			pelicula.setImagen(nombreImagen);
 		}
 
-		peliculasService.insertar(pelicula);
+
     	attributes.addFlashAttribute("mensaje", "El registro fue guardado");		
 		return "redirect:/peliculas/index";
 	}	
