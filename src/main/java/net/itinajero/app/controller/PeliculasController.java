@@ -74,4 +74,5 @@ public class PeliculasController {
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }
 
+
 }
