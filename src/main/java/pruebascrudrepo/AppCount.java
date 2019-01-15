@@ -6,7 +6,7 @@ import net.itinajero.app.repository.NoticiasRepository;
 public class AppCount {
 
 	public static void main(String[] args) {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("root-context.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("WEB-INF/spring/root-context.xml");
 		NoticiasRepository repo = context.getBean("noticiasRepository", NoticiasRepository.class);
 			
 		// Contar numeros de registros en la tabla [metodo count() del repositorio]

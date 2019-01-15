@@ -1,6 +1,8 @@
 package net.itinajero.app.service;
 
 import net.itinajero.app.model.Pelicula;
+import net.itinajero.app.repository.PeliculasRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
@@ -8,14 +10,18 @@ import java.util.List;
 
 @Service
 public class PeliculasServiceJPA implements IPeliculasService {
+
+    @Autowired
+    private PeliculasRepository repository;
+
     @Override
     public void insertar(Pelicula pelicula) {
-
+        repository.save(pelicula);
     }
 
     @Override
     public List<Pelicula> buscarTodas() {
-        return null;
+        return repository.findAll();
     }
 
     @Override

@@ -8,7 +8,7 @@ import net.itinajero.app.repository.HorariosRepository;
 public class AppRepoHorarios {
 
 	public static void main(String[] args) {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("root-context.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("WEB-INF/spring/root-context.xml");
 		HorariosRepository repo = context.getBean("horariosRepository", HorariosRepository.class);
 		
 		List<Horario> lista = repo.findAll();

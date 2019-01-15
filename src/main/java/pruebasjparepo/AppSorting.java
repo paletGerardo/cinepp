@@ -9,7 +9,7 @@ import net.itinajero.app.repository.NoticiasRepository;
 public class AppSorting {
 
 	public static void main(String[] args) {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("root-context.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("WEB-INF/spring/root-context.xml");
 		NoticiasRepository repo = context.getBean("noticiasRepository", NoticiasRepository.class);	
 		// Obtener todas las entidades ordenadas por un campo.
 		//List<Noticia> lista = repo.findAll(Sort.by("titulo").descending());

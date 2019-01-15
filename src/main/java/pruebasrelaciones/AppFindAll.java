@@ -9,7 +9,7 @@ public class AppFindAll {
 
 	public static void main(String[] args) {
 
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("root-context.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("WEB-INF/spring/root-context.xml");
 		//Recuperar todas las entidades de tipo Pelicula
 		PeliculasRepository repo = context.getBean("peliculasRepository", PeliculasRepository.class);
 		List<Pelicula> lista= repo.findAll();

@@ -14,7 +14,7 @@ public class AppCreate {
 		noticia.setTitulo("Proximo Estreno: Juego Macabro 8");
 		noticia.setDetalle("El mes de septiembre se estrena la nueva entrega de SAW 8");
 		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("root-context.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("WEB-INF/spring/root-context.xml");
 		NoticiasRepository repo = context.getBean("noticiasRepository", NoticiasRepository.class);
 		// Operacion CRUD - Create [metodo save del repositorio]
 		repo.save(noticia);

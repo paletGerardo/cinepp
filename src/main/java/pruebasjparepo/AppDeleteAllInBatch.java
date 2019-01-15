@@ -8,10 +8,10 @@ public class AppDeleteAllInBatch {
 
 	public static void main(String[] args) {
 		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("root-context.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("WEB-INF/spring/root-context.xml");
 		NoticiasRepository repo = context.getBean("noticiasRepository", NoticiasRepository.class);
 		
-		/* Metodo deleteAllInBatch de la interfaz JpaRepository -> (es más eficiente)
+		/* Metodo deleteAllInBatch de la interfaz JpaRepository -> (es mï¿½s eficiente)
 			delete from Noticias	
 		*/
 		

@@ -8,7 +8,7 @@ import net.itinajero.app.repository.PeliculasRepository;
 public class AppGetHorariosPelicula {
 
 	public static void main(String[] args) {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("root-context.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("WEB-INF/spring/root-context.xml");
 		
 		PeliculasRepository repo = context.getBean("peliculasRepository", PeliculasRepository.class);
 		Optional<Pelicula> optional = repo.findById(7);
