@@ -28,48 +28,50 @@ import net.itinajero.app.util.Utileria;
 @RequestMapping("/peliculas")
 public class PeliculasController {
 
+    @Autowired
+    private IDetallesService detallesService;
 
+    @Autowired
+    private IPeliculasService peliculasService;
 
-	@Autowired
-	private IPeliculasService peliculasService;
+    @GetMapping("/index")
+    public String mostrarIndex(Model model) {
+        List<Pelicula> lista = peliculasService.buscarTodas();
+        model.addAttribute("peliculas", lista);
+        return "peliculas/listPeliculas";
+    }
 
-	@GetMapping("/index")
-	public String mostrarIndex(Model model) {
-		List<Pelicula> lista = peliculasService.buscarTodas();
-		model.addAttribute("peliculas", lista);
-		return "peliculas/listPeliculas";
-	}
-	
-	@GetMapping("/create")
-	public String crear(@ModelAttribute Pelicula pelicula, Model model) {
-		model.addAttribute("generos", peliculasService.buscarGeneros());
-		return "peliculas/formPelicula";
-	}
-	
-	@PostMapping("/save")
-	public String guardar(@ModelAttribute Pelicula pelicula, BindingResult result, RedirectAttributes attributes,
-			@RequestParam("archivoImagen") MultipartFile multiPart, HttpServletRequest request
-			) {
-		
-		if (result.hasErrors()) {
-			//System.out.println("Existieron errores");
-			return "peliculas/formPelicula";
-		}
-		
-		if (!multiPart.isEmpty()) {
-			String nombreImagen = Utileria.guardarImagen(multiPart,request);
-			pelicula.setImagen(nombreImagen);
-		}
+    @GetMapping("/create")
+    public String crear(@ModelAttribute Pelicula pelicula, Model model) {
+        model.addAttribute("generos", peliculasService.buscarGeneros());
+        return "peliculas/formPelicula";
+    }
 
-		peliculasService.insertar(pelicula);
-    	attributes.addFlashAttribute("mensaje", "El registro fue guardado");		
-		return "redirect:/peliculas/index";
-	}	
-	
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
-	}
-	
+    @PostMapping("/save")
+    public String guardar(@ModelAttribute Pelicula pelicula, BindingResult result, RedirectAttributes attributes,
+                          @RequestParam("archivoImagen") MultipartFile multiPart, HttpServletRequest request
+    ) {
+
+        if (result.hasErrors()) {
+            //System.out.println("Existieron errores");
+            return "peliculas/formPelicula";
+        }
+
+        if (!multiPart.isEmpty()) {
+            String nombreImagen = Utileria.guardarImagen(multiPart, request);
+            pelicula.setImagen(nombreImagen);
+        }
+
+        detallesService.insertar(pelicula.getDetalle());
+        peliculasService.insertar(pelicula);
+        attributes.addFlashAttribute("mensaje", "El registro fue guardado");
+        return "redirect:/peliculas/index";
+    }
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+    }
+
 }

@@ -5,10 +5,10 @@ import net.itinajero.app.repository.DetallesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-//Service
+@Service
 public class DetallesServicesJPA implements IDetallesService {
 
-    //@Autowired
+    @Autowired
     private DetallesRepository repository;
 
     @Override

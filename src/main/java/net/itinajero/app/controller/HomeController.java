@@ -37,7 +37,7 @@ public class HomeController {
 		model.addAttribute("peliculas", peliculas);
 		model.addAttribute("banners", serviceBanners.buscarTodos()); 
 				
-		return "home";
+		return "home2";
 	}
 		
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -49,9 +49,9 @@ public class HomeController {
 		model.addAttribute("fechas", listaFechas);
 		model.addAttribute("fechaBusqueda", dateFormat.format(new Date()));
 		model.addAttribute("peliculas", peliculas);
-		model.addAttribute("banners", serviceBanners.buscarTodos()); 
-
-		return "home";
+		model.addAttribute("banners", serviceBanners.buscarTodos());
+		System.out.println("RETORNA LISTA DE PELICULAS: " + peliculas);
+		return "home2";
 	}
 
 	@RequestMapping(value = "/detail/{id}/{fecha}",method=RequestMethod.GET)		
