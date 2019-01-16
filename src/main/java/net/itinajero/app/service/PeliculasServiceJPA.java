@@ -60,7 +60,8 @@ public class PeliculasServiceJPA implements IPeliculasService {
     }
 
     @Override
-    public Page<Pelicula> listarPaginado(Pageable page) {
+
+    public Page<Pelicula> listaPaginada(Pageable page) {
         return repository.findAll(page);
     }
 }

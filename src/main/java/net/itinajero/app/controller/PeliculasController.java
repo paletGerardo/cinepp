@@ -85,10 +85,10 @@ public class PeliculasController {
         return "redirect:/peliculas/index";
     }
 
-    @GetMapping("/indexPaginate")
-    public String indexPaginado(Model model, Pageable page){
-        Page<Pelicula> peliculas = peliculasService.listarPaginado(page);
-        System.out.println("paginado de peliculas: " + peliculas.getContent());
+
+    @GetMapping(value = "/indexPaginate")
+    public String indexPaginacion(Model model, Pageable page){
+        Page<Pelicula> peliculas = peliculasService.listaPaginada(page);
         model.addAttribute("peliculas", peliculas);
         return "peliculas/listPeliculas";
     }
