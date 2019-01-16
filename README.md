@@ -224,3 +224,25 @@ video 135
                 
                 @OneToMany(mappedBy = "pelicula", fetch = FetchType.EAGER)
                 private List<Horario> horarios;
+                
+video 144
+
+    1. anotacion @ModelAtribute a nivel metodo
+        
+        al agregar un metodo con esta anotacion es visible para todos los metodos
+        
+        @ModelAttribute(value = "generos")
+            public List<String> generos(){
+                return peliculasService.buscarGeneros();
+            }
+video 146
+
+    1. Eliminar pelicula: repaso de RedirectAtributes->flashAtribute
+    
+        @GetMapping("/delete/{id}")
+            public String eliminar(@PathVariable("id") int idPelicula,  ==>>>> RedirectAttributes attributes <<<<==){
+        ==>>>>  attributes.addFlashAttribute("mensaje", "La pelicula fue eliminada"); <<<<==
+                peliculasService.eliminar(idPelicula);
+                return "redirect:/pelicula/index";
+            }
+                

@@ -15,4 +15,9 @@ public class DetallesServicesJPA implements IDetallesService {
     public void insertar(Detalle detalle) {
         repository.save(detalle);
     }
+
+    @Override
+    public void eliminar(int idDetalle) {
+        repository.deleteById(idDetalle);
+    }
 }

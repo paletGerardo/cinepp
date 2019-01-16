@@ -28,7 +28,7 @@ public class PeliculasServiceJPA implements IPeliculasService {
     @Override
     public Pelicula buscarPorId(int idPelicula) {
         Optional<Pelicula> pelicula = repository.findById(idPelicula);
-        if (pelicula.isPresent()){
+        if (pelicula.isPresent()) {
             return pelicula.get();
         }
         return null;
@@ -50,5 +50,10 @@ public class PeliculasServiceJPA implements IPeliculasService {
         generos.add("Ciencia Ficcion");
 
         return generos;
+    }
+
+    @Override
+    public void eliminar(int idPelicula) {
+        repository.deleteById(idPelicula);
     }
 }

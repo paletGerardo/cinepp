@@ -70,6 +70,19 @@ public class PeliculasController {
         return "redirect:/peliculas/index";
     }
 
+    @GetMapping("/delete/{id}")
+    public String eliminar(@PathVariable("id") int idPelicula, RedirectAttributes attributes){
+        //buscar pelicula para eliminar detalle
+        Pelicula pelicula = peliculasService.buscarPorId(idPelicula);
+
+        //Elimino pelicula
+        peliculasService.eliminar(idPelicula);
+        //Elimino los detalles
+        detallesService.eliminar(pelicula.getDetalle().getId());
+        attributes.addFlashAttribute("mensaje", "La pelicula fue eliminada");
+        return "redirect:/peliculas/index";
+    }
+
     @ModelAttribute(value = "generos")
     public List<String> generos(){
         return peliculasService.buscarGeneros();
@@ -80,6 +93,5 @@ public class PeliculasController {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }
-
 
 }
