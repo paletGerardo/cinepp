@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PeliculasServiceJPA implements IPeliculasService {
@@ -26,6 +27,10 @@ public class PeliculasServiceJPA implements IPeliculasService {
 
     @Override
     public Pelicula buscarPorId(int idPelicula) {
+        Optional<Pelicula> pelicula = repository.findById(idPelicula);
+        if (pelicula.isPresent()){
+            return pelicula.get();
+        }
         return null;
     }
 

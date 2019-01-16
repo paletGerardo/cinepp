@@ -53,8 +53,9 @@
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
-              <label for="titulo">Título</label>
+              <label for="titulo">Tï¿½tulo</label>
               <form:hidden path="id"/>
+              <form:hidden path="detalle.id"/>
               <form:input type="text" class="form-control" path="titulo" id="titulo" required="required" />
             </div>  
           </div>

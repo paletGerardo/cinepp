@@ -12,12 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import net.itinajero.app.model.Pelicula;
@@ -43,7 +38,14 @@ public class PeliculasController {
 
     @GetMapping("/create")
     public String crear(@ModelAttribute Pelicula pelicula, Model model) {
-        model.addAttribute("generos", peliculasService.buscarGeneros());
+        return "peliculas/formPelicula";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable("id") int idPelicula, Model model){
+        Pelicula pelicula = peliculasService.buscarPorId(idPelicula);
+
+        model.addAttribute("pelicula", pelicula);
         return "peliculas/formPelicula";
     }
 
@@ -66,6 +68,11 @@ public class PeliculasController {
         peliculasService.insertar(pelicula);
         attributes.addFlashAttribute("mensaje", "El registro fue guardado");
         return "redirect:/peliculas/index";
+    }
+
+    @ModelAttribute(value = "generos")
+    public List<String> generos(){
+        return peliculasService.buscarGeneros();
     }
 
     @InitBinder
