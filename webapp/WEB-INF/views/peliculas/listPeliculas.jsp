@@ -45,7 +45,7 @@
                 <th>Opciones</th>
             </tr>
             
-            <c:forEach var="pelicula" items="${peliculas}">
+            <c:forEach var="pelicula" items="${peliculas.getContent()}">
 			  <tr>
 				<td>${pelicula.titulo}</td>
 				<td>${pelicula.genero}</td>
@@ -69,6 +69,12 @@
 			</c:forEach>
             
         </table>
+          <nav aria-label="">
+              <ul class="pager">
+                  <li><a href="indexPaginate?page=${peliculas.number - 1 }">Anterior</a></li>
+                  <li><a href="indexPaginate?page=${peliculas.number + 1 }">Siguiente</a></li>
+              </ul>
+          </nav>
       </div>
           
       <hr class="featurette-divider">

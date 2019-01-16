@@ -12,4 +12,5 @@ public interface IPeliculasService {
 	Pelicula buscarPorId(int idPelicula);
 	List<String> buscarGeneros();
 	void eliminar(int idPelicula);
+	Page<Pelicula> listaPaginada(Pageable page);
 }

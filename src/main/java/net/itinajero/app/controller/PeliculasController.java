@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import net.itinajero.app.service.IDetallesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -82,6 +84,21 @@ public class PeliculasController {
         attributes.addFlashAttribute("mensaje", "La pelicula fue eliminada");
         return "redirect:/peliculas/index";
     }
+
+    @GetMapping(value = "/indexPaginate")
+    public String indexPaginacion(Model model, Pageable page){
+        Page<Pelicula> peliculas = peliculasService.listaPaginada(page);
+        model.addAttribute("peliculas", peliculas);
+        return "peliculas/listPeliculas";
+    }
+
+   /* @GetMapping(value = "/indexPaginate")
+    public String mostrarIndexPaginado(Model model, Pageable page) {
+        Page<Pelicula> lista = peliculasService.listaPaginada(page);
+        model.addAttribute("peliculas", lista);
+        return "peliculas/listPeliculas";
+    }*/
+
 
     @ModelAttribute(value = "generos")
     public List<String> generos(){

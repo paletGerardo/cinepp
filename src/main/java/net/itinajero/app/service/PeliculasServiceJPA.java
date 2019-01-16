@@ -3,6 +3,8 @@ package net.itinajero.app.service;
 import net.itinajero.app.model.Pelicula;
 import net.itinajero.app.repository.PeliculasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
@@ -55,5 +57,10 @@ public class PeliculasServiceJPA implements IPeliculasService {
     @Override
     public void eliminar(int idPelicula) {
         repository.deleteById(idPelicula);
+    }
+
+    @Override
+    public Page<Pelicula> listaPaginada(Pageable page) {
+        return repository.findAll(page);
     }
 }
