@@ -56,7 +56,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/detail/{id}/{fecha}",method=RequestMethod.GET)		
 	public String mostrarDetalle(Model model,@PathVariable("id") int idPelicula, @PathVariable("fecha") String fecha) {
-					
+
 		model.addAttribute("pelicula", servicePeliculas.buscarPorId(idPelicula));
 		// TODO - Buscar en la base de datos los horarios.		
 		
