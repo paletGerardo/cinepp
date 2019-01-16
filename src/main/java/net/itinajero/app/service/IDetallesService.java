@@ -5,4 +5,5 @@ import org.springframework.stereotype.Service;
 
 public interface IDetallesService {
     void insertar(Detalle detalle);
+    void eliminar(int idDetalle);
 }

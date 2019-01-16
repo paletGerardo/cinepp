@@ -4,6 +4,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import net.itinajero.app.model.Pelicula;
 
@@ -125,5 +128,15 @@ public class PeliculasServiceImpl implements IPeliculasService {
 				
 		return generos;
 	}
-	
+
+	@Override
+	public void eliminar(int idPelicula) {
+
+	}
+
+	@Override
+	public Page<Pelicula> listarPaginado(Pageable page) {
+		return null;
+	}
+
 }
