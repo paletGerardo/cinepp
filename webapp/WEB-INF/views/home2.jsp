@@ -104,10 +104,10 @@
                <c:forEach items="${fechas}" var="fecha">
                   <c:choose>
 							<c:when test="${fechaBusqueda eq fecha}" >
-							     <option value="${fecha}" selected>${fecha}</option>	
+							     <option value="${fechaBusqueda}" selected>${fechaBusqueda}</option>
 							</c:when>
 							<c:otherwise>
-							     <option value="${fecha}">${fecha}</option>	
+							     <option value="${fecha}">${fecha}</option>
 							</c:otherwise>
 				  		</c:choose>	
                </c:forEach>             
