@@ -45,7 +45,7 @@
                 <th>Opciones</th>
             </tr>
             
-            <c:forEach var="pelicula" items="${peliculas.getContent()git }">
+            <c:forEach var="pelicula" items="${peliculas.getContent() }">
 			  <tr>
 				<td>${pelicula.titulo}</td>
 				<td>${pelicula.genero}</td>
