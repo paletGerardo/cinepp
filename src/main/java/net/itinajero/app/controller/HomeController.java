@@ -66,6 +66,7 @@ public class HomeController {
 		model.addAttribute("horarios", lista);
 		model.addAttribute("fechaBusqueda", dateFormat.format(fecha));
 		System.out.println("LISTADO DE HORARIO: " + lista);
+
 		model.addAttribute("pelicula", servicePeliculas.buscarPorId(idPelicula));
 		// TODO - Buscar en la base de datos los horarios.		
 		

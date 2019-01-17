@@ -11,4 +11,5 @@ import java.util.List;
 public interface HorariosRepository extends JpaRepository<Horario, Integer> {
 
     public List<Horario> findByPelicula_IdAndFechaOrderByHora(int idPelicula, Date fecha);
+
 }

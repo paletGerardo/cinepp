@@ -136,6 +136,7 @@ public class PeliculasServiceImpl implements IPeliculasService {
 
 	@Override
 	public Page<Pelicula> listaPaginada(Pageable page) {
+
 		return null;
 	}
 

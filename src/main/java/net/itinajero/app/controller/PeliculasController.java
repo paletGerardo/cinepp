@@ -92,8 +92,6 @@ public class PeliculasController {
         return "peliculas/listPeliculas";
     }
 
-
-
     @ModelAttribute(value = "generos")
     public List<String> generos(){
         return peliculasService.buscarGeneros();
