@@ -92,12 +92,6 @@ public class PeliculasController {
         return "peliculas/listPeliculas";
     }
 
-   /* @GetMapping(value = "/indexPaginate")
-    public String mostrarIndexPaginado(Model model, Pageable page) {
-        Page<Pelicula> lista = peliculasService.listaPaginada(page);
-        model.addAttribute("peliculas", lista);
-        return "peliculas/listPeliculas";
-    }*/
 
 
     @ModelAttribute(value = "generos")
