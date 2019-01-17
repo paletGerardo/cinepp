@@ -1,3 +1,4 @@
+
 package net.itinajero.app.service;
 
 import java.text.ParseException;
@@ -135,8 +136,8 @@ public class PeliculasServiceImpl implements IPeliculasService {
 	}
 
 	@Override
-
 	public Page<Pelicula> listaPaginada(Pageable page) {
+
 		return null;
 	}
 

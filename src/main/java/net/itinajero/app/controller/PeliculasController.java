@@ -85,7 +85,6 @@ public class PeliculasController {
         return "redirect:/peliculas/index";
     }
 
-
     @GetMapping(value = "/indexPaginate")
     public String indexPaginacion(Model model, Pageable page){
         Page<Pelicula> peliculas = peliculasService.listaPaginada(page);
