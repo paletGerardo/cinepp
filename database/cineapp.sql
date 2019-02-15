@@ -181,7 +181,7 @@ LOCK TABLES `UsuarioPerfil` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Usuarios`
+-- Table structure for table `Usuario`
 --
 
 DROP TABLE IF EXISTS `Usuarios`;
@@ -199,7 +199,7 @@ CREATE TABLE `Usuarios` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Usuarios`
+-- Dumping data for table `Usuario`
 --
 
 LOCK TABLES `Usuarios` WRITE;

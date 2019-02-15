@@ -2,8 +2,8 @@ package pruebasrelaciones;
 
 import java.util.List;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import net.itinajero.app.model.Pelicula;
-import net.itinajero.app.repository.PeliculasRepository;
+import net.gerr.app.model.Pelicula;
+import net.gerr.app.repository.PeliculasRepository;
 
 public class AppFindAll {
 

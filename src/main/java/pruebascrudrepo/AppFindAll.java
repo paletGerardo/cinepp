@@ -2,8 +2,8 @@ package pruebascrudrepo;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import net.itinajero.app.model.Noticia;
-import net.itinajero.app.repository.NoticiasRepository;
+import net.gerr.app.model.Noticia;
+import net.gerr.app.repository.NoticiasRepository;
 
 public class AppFindAll {
 

@@ -2,8 +2,8 @@ package pruebascrudrepo;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import net.itinajero.app.model.Noticia;
-import net.itinajero.app.repository.NoticiasRepository;
+import net.gerr.app.model.Noticia;
+import net.gerr.app.repository.NoticiasRepository;
 
 // Aplicacion para persistir (Crear) en la tabla Noticias un objeto de tipo Noticia
 public class AppCreate {

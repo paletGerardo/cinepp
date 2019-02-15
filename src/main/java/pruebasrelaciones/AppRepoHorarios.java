@@ -2,8 +2,8 @@ package pruebasrelaciones;
 
 import java.util.List;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import net.itinajero.app.model.Horario;
-import net.itinajero.app.repository.HorariosRepository;
+import net.gerr.app.model.Horario;
+import net.gerr.app.repository.HorariosRepository;
 
 public class AppRepoHorarios {
 

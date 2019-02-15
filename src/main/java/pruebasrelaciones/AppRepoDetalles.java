@@ -2,8 +2,8 @@ package pruebasrelaciones;
 
 import java.util.List;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import net.itinajero.app.model.Detalle;
-import net.itinajero.app.repository.DetallesRepository;
+import net.gerr.app.model.Detalle;
+import net.gerr.app.repository.DetallesRepository;
 
 public class AppRepoDetalles {
 

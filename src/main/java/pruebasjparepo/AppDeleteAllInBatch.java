@@ -2,7 +2,7 @@ package pruebasjparepo;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import net.itinajero.app.repository.NoticiasRepository;
+import net.gerr.app.repository.NoticiasRepository;
 
 public class AppDeleteAllInBatch {
 
